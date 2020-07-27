@@ -1,8 +1,8 @@
 import numpy as np
-from pyqtgraph.Qt import QtCore, QtGui
 import pyqtgraph as pg
-from combinatorial import affine
+from pyqtgraph.Qt import QtCore, QtGui
 
+from combinatorial import affine
 
 magnification = 1
 rotation = 0
@@ -24,6 +24,7 @@ def imageData1MaxChanged(sb):
     global imageData1_max
     imageData1_max = sb.value()
     ii_image_data1.setImage(np.where(current_image_data1 <= imageData1_max, current_image_data1, 0))
+
 
 def imageData2MaxChanged(sb):
     global imageData2_max
@@ -58,7 +59,8 @@ def imageData2AlphaChanged(sb):
 def imageData1RotationChanged(sb):
     global current_image_data1, rotation, dx, dy
     rotation = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -71,7 +73,8 @@ def imageData1RotationChanged(sb):
 def imageData1dxChanged(sb):
     global current_image_data1, rotation, dx, dy
     dx = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -84,7 +87,8 @@ def imageData1dxChanged(sb):
 def imageData1dyChanged(sb):
     global current_image_data1, rotation, dx, dy
     dy = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -97,7 +101,8 @@ def imageData1dyChanged(sb):
 def imageData1RotationChanging(sb):
     global current_image_data1, rotation, dx, dy
     rotation = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -106,7 +111,8 @@ def imageData1RotationChanging(sb):
 def imageData1DXChanging(sb):
     global current_image_data1, rotation, dx, dy
     dx = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -115,7 +121,8 @@ def imageData1DXChanging(sb):
 def imageData1DYChanging(sb):
     global current_image_data1, rotation, dx, dy
     dy = sb.value()
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -124,7 +131,8 @@ def imageData1DYChanging(sb):
 def imageData1HorizontalFlip():
     global current_image_data1, horizontal_flip
     horizontal_flip *= -1
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
@@ -137,7 +145,8 @@ def imageData1HorizontalFlip():
 def imageData1VerticalFlip():
     global current_image_data1, vertical_flip
     vertical_flip *= -1
-    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx, ty=dy,
+    current_image_data1 = affine.affine(image_data1, magnification=magnification, rotation=np.deg2rad(rotation), tx=dx,
+                                        ty=dy,
                                         hf=horizontal_flip, vf=vertical_flip)
     ii_image_data1.setImage(current_image_data1)
     imageData1_imageData2RandomPlot()
