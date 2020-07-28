@@ -31,9 +31,9 @@ def affine(data, magnification=1, rotation=0, tx=0, ty=0, hf=1, vf=1):
                             [0, 0, 1]])
 
     affine_rot_mag = np.array([[magnification * np.cos(rotation), magnification * np.sin(rotation), 0],
-                               [magnification * -np.sin(rotation), magnification * np.cos(rotation), 0],
-                               [0, 0, 1]])
-    affine = affine_trans @ affine_center2ori @ affine_flip @ affine_rot_mag @ affine_ori2center
+                            [magnification * -np.sin(rotation), magnification * np.cos(rotation), 0],
+                            [0, 0, 1]])
+    affine = affine_trans @ affine_center2ori @affine_flip @ affine_rot_mag @ affine_ori2center
     # ===========================================================================================================================
     inv_affine = np.linalg.inv(affine)
     ref_xy = np.einsum('ijk,lk->ijl', xy, inv_affine)[..., :2]
